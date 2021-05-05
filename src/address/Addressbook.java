@@ -61,7 +61,7 @@ public class Addressbook {
 		System.out.println("State: " + State);
 		System.out.println("Zip: " + zip);
 		System.out.println("Contact Number: " + Contact_Number);
-		System.out.println("Email Address: " + eMail);
+		System.out.println("Email Address: " + eMail +"\n");
 	}
 
 	public void editPerson() {
@@ -91,6 +91,33 @@ public class Addressbook {
 			System.out.println("###..Nothing to edit..###");
 		}
 	}
+		public void deletePerson() {
+			System.out.println("\nCross Check the details. if you want to delete Type '1' for Yes or '0' for No ");
+			Scanner sc = new Scanner(System.in);
+			int YN = sc.nextInt();
+			if (YN == 1) {
+				Scanner sc1 = new Scanner(System.in);
+				System.out.println("\nEnter the choice: What you Want to delete");
+				System.out.println("1:- First_Name \n2:- Last_Name");
+				int edit = sc1.nextInt();
+				switch (edit) {
+				case 1:
+					System.out.println("Enter the Name that you want to delete");
+					Scanner sc2 = new Scanner(System.in);
+					String FN = sc2.nextLine();
+					System.out.println("The Name is deleted: " + FN);
+					break;
+				case 2:
+					System.out.println("Enter the Name that you want to delete");
+					Scanner sc3 = new Scanner(System.in);
+					String LN = sc3.nextLine();
+					System.out.println("The Nmae is deleted: " + LN);
+					break;
+				}
+			} else {
+				System.out.println("###..Nothing to delete..###");
+			}
+	}
 
 	public static void main(String[] args) {
 
@@ -98,6 +125,7 @@ public class Addressbook {
 		Addressbook register = new Addressbook();
 		register.addContactDetails();
 		register.editPerson();
+		register.deletePerson();
 	}
 
 }
