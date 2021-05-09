@@ -13,7 +13,17 @@ public class Addressbook {
 	String Contact_Number;
 	String eMail;
 
-	void addContactDetails() {
+	private void numOfContacts() {
+		System.out.println("Enter Number of contacts");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int nc = sc.nextInt();	
+		for (int i =0; i < nc; i++) {
+			addContactDetails();
+		}
+			
+	}
+	public void addContactDetails() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the First Name");
@@ -50,11 +60,11 @@ public class Addressbook {
 		this.eMail = eMail;
 	}
 
-	public Addressbook() {
+	private Addressbook() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void addressBook() {
+	private void addressBook() {
 		System.out.println("\nFirst Name: " + First_Name);
 		System.out.println("Last Name: " + Last_Name);
 		System.out.println("Address: " + Address);
@@ -65,7 +75,7 @@ public class Addressbook {
 		System.out.println("Email Address: " + eMail + "\n");
 	}
 
-	public void editPerson() {
+	private void editPerson() {
 		System.out.println("\nCross Check the details. if you want to edit Type '1' for Yes or '0' for No ");
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -95,7 +105,7 @@ public class Addressbook {
 		}
 	}
 
-	public void deletePerson() {
+	private void deletePerson() {
 		System.out.println("\nCross Check the details. if you want to delete Type '1' for Yes or '0' for No ");
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -105,8 +115,8 @@ public class Addressbook {
 			Scanner sc1 = new Scanner(System.in);
 			System.out.println("\nEnter the choice: What you Want to delete");
 			System.out.println("1:- First_Name \n2:- Last_Name");
-			int edit = sc1.nextInt();
-			switch (edit) {
+			int delete = sc1.nextInt();
+			switch (delete) {
 			case 1:
 				System.out.println("The First Name is deleted");
 				break;
@@ -123,7 +133,7 @@ public class Addressbook {
 
 		System.out.println("..####..Welcome to Address Book Programm..####..");
 		Addressbook register = new Addressbook();
-		register.addContactDetails();
+		register.numOfContacts();
 		register.editPerson();
 		register.deletePerson();
 	}
