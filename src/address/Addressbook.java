@@ -14,6 +14,7 @@ public class Addressbook {
 	String eMail;
 
 	void addContactDetails() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the First Name");
 		String First_Name = sc.nextLine();
@@ -61,14 +62,16 @@ public class Addressbook {
 		System.out.println("State: " + State);
 		System.out.println("Zip: " + zip);
 		System.out.println("Contact Number: " + Contact_Number);
-		System.out.println("Email Address: " + eMail +"\n");
+		System.out.println("Email Address: " + eMail + "\n");
 	}
 
 	public void editPerson() {
 		System.out.println("\nCross Check the details. if you want to edit Type '1' for Yes or '0' for No ");
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int YN = sc.nextInt();
 		if (YN == 1) {
+			@SuppressWarnings("resource")
 			Scanner sc1 = new Scanner(System.in);
 			System.out.println("\nEnter the choice: What you Want to edit");
 			System.out.println("1:- First_Name \n2:- Last_Name");
@@ -84,39 +87,36 @@ public class Addressbook {
 				System.out.println("Enter the New Name What you want to Edit");
 				Scanner sc3 = new Scanner(System.in);
 				String LN = sc3.nextLine();
-				System.out.println("The New Nmae Entered is: " + LN);
+				System.out.println("The New Name Entered is: " + LN);
 				break;
 			}
 		} else {
 			System.out.println("###..Nothing to edit..###");
 		}
 	}
-		public void deletePerson() {
-			System.out.println("\nCross Check the details. if you want to delete Type '1' for Yes or '0' for No ");
-			Scanner sc = new Scanner(System.in);
-			int YN = sc.nextInt();
-			if (YN == 1) {
-				Scanner sc1 = new Scanner(System.in);
-				System.out.println("\nEnter the choice: What you Want to delete");
-				System.out.println("1:- First_Name \n2:- Last_Name");
-				int edit = sc1.nextInt();
-				switch (edit) {
-				case 1:
-					System.out.println("Enter the Name that you want to delete");
-					Scanner sc2 = new Scanner(System.in);
-					String FN = sc2.nextLine();
-					System.out.println("The Name is deleted: " + FN);
-					break;
-				case 2:
-					System.out.println("Enter the Name that you want to delete");
-					Scanner sc3 = new Scanner(System.in);
-					String LN = sc3.nextLine();
-					System.out.println("The Nmae is deleted: " + LN);
-					break;
-				}
-			} else {
-				System.out.println("###..Nothing to delete..###");
+
+	public void deletePerson() {
+		System.out.println("\nCross Check the details. if you want to delete Type '1' for Yes or '0' for No ");
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		int YN = sc.nextInt();
+		if (YN == 1) {
+			@SuppressWarnings("resource")
+			Scanner sc1 = new Scanner(System.in);
+			System.out.println("\nEnter the choice: What you Want to delete");
+			System.out.println("1:- First_Name \n2:- Last_Name");
+			int edit = sc1.nextInt();
+			switch (edit) {
+			case 1:
+				System.out.println("The First Name is deleted");
+				break;
+			case 2:
+				System.out.println("The Last Name is deleted: ");
+				break;
 			}
+		} else {
+			System.out.println("###..Nothing to delete..###");
+		}
 	}
 
 	public static void main(String[] args) {
